@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Surprise for My Girl</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- background music -->
+    <audio id="bg-music" src="Afusic - Pal Pal with @Talwiinder (Official Visualiser) Prod. @AliSoomroMusic [AbkEmIgJMcU].mp3" loop></audio>
+
+    <div class="greetings">
+      <h1 class="name">
+        <span style="--i:0">N</span>
+        <span style="--i:1">I</span>
+        <span style="--i:2">K</span>
+        <span style="--i:3">K</span>
+        <span style="--i:4">I</span>
+      </h1>
+
+      <p class="subtitle">For you My Jennie 🤍</p>
+
+      <a href="#" id="open-btn" class="btn">Open Here</a>
+    </div>
+
+    <!-- container that will show the flowers page -->
+    <div id="flowers-container" style="display:none; width:100vw; height:100vh;">
+      <iframe
+        id="flowers-frame"
+        src="flowers.html"
+        style="border:none; width:100%; height:100%;"
+      ></iframe>
+    </div>
+
+    <script>
+      const btn = document.getElementById("open-btn");
+      const audio = document.getElementById("bg-music");
+      const greetings = document.querySelector(".greetings");
+      const flowersContainer = document.getElementById("flowers-container");
+
+      if (btn && audio && greetings && flowersContainer) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          audio.play().catch(() => {
+            // if autoplay is blocked, she can click again
+          });
+
+          greetings.style.display = "none";
+          flowersContainer.style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>
